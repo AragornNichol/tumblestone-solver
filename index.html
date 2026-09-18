@@ -3,8 +3,74 @@
     <head>
         <title>Tumblestone Solver</title>
     </head>
+    <!--Would like to make a page explaining each wildcard for clarity-->
     <body>
-        <h1>Test</h1>
-        <p>Test Test Test Test</p>
+        <p>Use R,G,B,Y,P for the coloured stones, # for blockers (use 0 if they start open), and % to indicate wildcards.</p>
+    <!--form to take the board state and wildcards-->
+    <form>
+        <label for="board">Input the board state:</label>
+        <br>
+        <textarea id="board" name="board" rows="10"></textarea>
+        <br>
+        <label>Modifiers:</label>
+        <br>
+        
+        <input type="checkbox" id="toggle-blockers" name="toggle_blockers">
+        <label for="toggle-blockers">Toggling Blockers</label> 
+        <br>
+        
+        <input type="checkbox" id="wildcards" name="wildcards">
+        <label for="wildcards">Wildcards</label> 
+        <br>
+        <!--make this only appear if wildcards are selected-->
+        <!--also make it indented (it has to look a little bit nice)-->
+        <label for="wildcard-colours">Wildcard colours:</label>
+        <br>
+        <input type="text" id="wildcard-colours" name="wild_colour">
+        <br>
+
+        <input type="checkbox" id="colour-lock" name="colour_lock">
+        <label for="colour-lock">Colour Lock</label> 
+        <br>        
+
+        <input type="checkbox" id="sprouts" name="sprouts">
+        <label for="sprouts">Sprouts</label> 
+        <br>
+
+        <input type="checkbox" id="stagg-locks" name="stagg_locks">
+        <label for="stagg-locks">Staggered Locks</label> 
+        <br>
+        <label for="stagg-locks-initial">Inital state of top left stone:</label>
+        <br>
+        <input type="radio" id="off" name="init_stagger">
+        <label for="off">Unlocked</label><br>
+        <input type="radio" id="on" name="init_stagger">
+        <label for="on">Locked</label>
+        <br>
+
+        <input type="checkbox" id="row-lock" name="row_lock">
+        <label for="row-lock">Row Lock</label>
+        <br>
+        <label for="locked-row">Locked row (count from the top):</label>
+        <br>
+        <input type="text" id="locked-row" name="locked_row">
+        <br>
+
+        <input type="checkbox" id="double-shot" name="double_shot">
+        <label for="double-shot">Double Shot</label>
+        <br>
+
+        <input type="checkbox" id="column-flip" name="column_flip">
+        <label for="column-flip">Column Flipping</label>
+        <br>
+        
+        <input type="checkbox" id="sspt" name="sspt">
+        <label for="sspt">Second Shot Pass Through</label>
+        <br>
+
+        <input type="checkbox" id="countdown-blockers" name="countdown_blockers">
+        <label for="countdown-blockers">Countdown Blockers</label>
+        <br>
+    </form>
     </body>
 </html>
