@@ -1,0 +1,5 @@
+- Allow the user to submit the form
+- Take data from form
+- Finish python solver
+- Convert solver to JavaScript
+- Make web page look nicer (low priority)
