@@ -3,11 +3,36 @@
     <head>
         <title>Tumblestone Solver</title>
     </head>
-    <!--Would like to make a page explaining each wildcard for clarity-->
     <body>
         <script src="formscript.js"></script>
+        <h1>Tumblestone Solver</h1>
         <p>Use R,G,B,Y,P for the coloured stones, # for blockers (use 0 if they start open), and % to indicate wildcards.</p>
-    <!--form to take the board state and wildcards-->
+    <details>
+        <summary>Click here for an explanation of the wildcards</summary>
+        <p><b>Blockers</b>
+            - Solid blocks which can only be cleared by emptying the rest of their row.<br>
+            <b>Toggling Blockers</b>
+            - Blocker which swaps between being solid and not, allowing every other shot to pass through it. Cannot be cleared. <br>
+            <b>Wildcards</b>
+            - Can be used in place of any colour, but only once each per puzzle. <br>
+            <b>Colour Lock</b>
+            - Prevents two triplets of the same colour from being made consecutively. <br>
+            <b>Sprouts</b>
+            - The block removed with the first shot of each triplet is added to the top of the column it was removed from. <br>
+            <b>Staggered Locks</b>
+            - Chequerboard pattern across the blocks which prevents half of them from being used. All locks toggle after each shot made. <br>
+            <b>Row Shift</b>
+            - The blocks in some selected row will all shift one column to the right after each shot. <br>
+            <b>Double Shot</b>
+            - Each shot takes two blocks. <br>
+            <b>Column Flipping</b>
+            - When the final block of a triplet is removed, its entire column flips upside down. <br>
+            <b>Second Shot Pass Through</b>
+            - For the second shot of each triplet, the lowest block in every column becomes transparent, allowing the shot to pass through it. <br>
+            <b>Countdown Blockers</b>
+            - When a block is removed, it is replaced by a blocker which lasts until three shots have been taken.
+        </p>
+    </details>    
     <form>
         <label for="board">Input the board state:</label>
         <br>
@@ -51,13 +76,13 @@
         <br>
         </div>
 
-        <input type="checkbox" id="row-lock" name="row-lock" onchange="rowLockOptions(this)">
-        <label for="row-lock">Row Lock</label>
+        <input type="checkbox" id="row-shift" name="row-shift" onchange="rowLockOptions(this)">
+        <label for="row-shift">Row Shift</label>
         <br>
         <div id = row-options style="margin-left:20px;display:none">
-        <label for="locked-row">Locked row (count from the top):</label>
+        <label for="shift-row">Shifting row (count from the top):</label>
         <br>
-        <input type="text" id="locked-row" name="locked-row">
+        <input type="text" id="shift-row" name="shift-row">
         <br>
         </div>
 
