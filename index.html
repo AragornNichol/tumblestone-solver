@@ -5,6 +5,7 @@
     </head>
     <!--Would like to make a page explaining each wildcard for clarity-->
     <body>
+        <script src="formscript.js"></script>
         <p>Use R,G,B,Y,P for the coloured stones, # for blockers (use 0 if they start open), and % to indicate wildcards.</p>
     <!--form to take the board state and wildcards-->
     <form>
@@ -15,21 +16,21 @@
         <label>Modifiers:</label>
         <br>
         
-        <input type="checkbox" id="toggle-blockers" name="toggle_blockers">
+        <input type="checkbox" id="toggle-blockers" name="toggle-blockers">
         <label for="toggle-blockers">Toggling Blockers</label> 
         <br>
         
-        <input type="checkbox" id="wildcards" name="wildcards">
+        <input type="checkbox" id="wildcards" name="wildcards" onchange="wildOptions(this)">
         <label for="wildcards">Wildcards</label> 
         <br>
-        <!--make this only appear if wildcards are selected-->
-        <!--also make it indented (it has to look a little bit nice)-->
-        <label for="wildcard-colours">Wildcard colours:</label>
+        <div id="wildcard-options" style="margin-left:20px;display:none">
+        <label for="wildcard-colours" id = "wildcard-colours-label">Wildcard colours:</label>
         <br>
-        <input type="text" id="wildcard-colours" name="wild_colour">
+        <input type="text" id="wildcard-colours" name="wildcard-colours">
         <br>
+        </div>
 
-        <input type="checkbox" id="colour-lock" name="colour_lock">
+        <input type="checkbox" id="colour-lock" name="colour-lock">
         <label for="colour-lock">Colour Lock</label> 
         <br>        
 
@@ -37,30 +38,34 @@
         <label for="sprouts">Sprouts</label> 
         <br>
 
-        <input type="checkbox" id="stagg-locks" name="stagg_locks">
+        <input type="checkbox" id="stagg-locks" name="stagg-locks" onchange="staggOptions(this)">
         <label for="stagg-locks">Staggered Locks</label> 
         <br>
+        <div id="stagg-options" style="margin-left:20px;display:none">
         <label for="stagg-locks-initial">Inital state of top left stone:</label>
         <br>
-        <input type="radio" id="off" name="init_stagger">
+        <input type="radio" id="tl-off" name="init-stagger">
         <label for="off">Unlocked</label><br>
-        <input type="radio" id="on" name="init_stagger">
+        <input type="radio" id="tl-on" name="init-stagger">
         <label for="on">Locked</label>
         <br>
+        </div>
 
-        <input type="checkbox" id="row-lock" name="row_lock">
+        <input type="checkbox" id="row-lock" name="row-lock" onchange="rowLockOptions(this)">
         <label for="row-lock">Row Lock</label>
         <br>
+        <div id = row-options style="margin-left:20px;display:none">
         <label for="locked-row">Locked row (count from the top):</label>
         <br>
-        <input type="text" id="locked-row" name="locked_row">
+        <input type="text" id="locked-row" name="locked-row">
         <br>
+        </div>
 
-        <input type="checkbox" id="double-shot" name="double_shot">
+        <input type="checkbox" id="double-shot" name="double-shot">
         <label for="double-shot">Double Shot</label>
         <br>
 
-        <input type="checkbox" id="column-flip" name="column_flip">
+        <input type="checkbox" id="column-flip" name="column-flip">
         <label for="column-flip">Column Flipping</label>
         <br>
         
@@ -68,7 +73,7 @@
         <label for="sspt">Second Shot Pass Through</label>
         <br>
 
-        <input type="checkbox" id="countdown-blockers" name="countdown_blockers">
+        <input type="checkbox" id="countdown-blockers" name="countdown-blockers">
         <label for="countdown-blockers">Countdown Blockers</label>
         <br>
     </form>
